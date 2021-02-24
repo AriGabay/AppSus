@@ -1,7 +1,7 @@
 export default {
   props: ['note'],
   template: `
-    <div class="note-txt">
+    <div class="note-txt" @click="editNote">
     <div v-if="note.type==='noteTxt'">
         type: {{note.type}} <br/>
         info: {{note.info.txt}}
@@ -11,7 +11,11 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    editNote() {
+      this.$emit('editNote', this.note);
+    },
+  },
   components: {},
   computed: {},
 };
