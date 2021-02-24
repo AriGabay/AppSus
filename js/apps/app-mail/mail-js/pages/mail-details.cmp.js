@@ -2,7 +2,7 @@ import { mailService } from '../services/mail.services.js'
 export default {
     props: [],
     template: `
-    <div v-if="mail">
+    <div class="mail-details-container" v-if="mail">
         <p>From: {{mail.from}}</p>
         <p>Subject: {{mail.subject}}<p>
         <p>At: {{displayDate}}</p>

@@ -7,7 +7,7 @@ export default {
     props: [],
     template: `
     <div class="mail-main-container">
-      <aside>
+      <aside class="mail-main-nav">
         <button @click="goToCompose">+Compose</button>
         <li @click="goToInbox">Inbox</li>
         <li @click="goToStared">Stared</li>
@@ -15,7 +15,9 @@ export default {
         <li @click="goToTrash">Trash</li>
         <li><mail-status :mailsReadedPercent="mailsReadedPercent"></mail-status></li>
       </aside>
-      <router-view></router-view>
+      <div class="main-mail-app-container">
+          <router-view></router-view>
+        </div>
     </div>`,
     data() {
         return {

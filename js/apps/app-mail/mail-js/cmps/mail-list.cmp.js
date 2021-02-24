@@ -6,7 +6,7 @@ export default {
       <ul class="mail-list">
         <li v-for="mail in mails" :key="mail.id" >
             <!-- <router-link :to="'/mail/app/'+mail.id"> -->
-            <mail-preview :class="{ read: mail.isRead}" :mail="mail" @click.native="selectMail(mail.id)" />
+            <mail-preview :class="{ read: mail.isRead}" :mail="mail" @toggleRead="toggleRead" @click.native="selectMail(mail.id)" />
             <!-- </router-link> -->
         </li>
     </ul>
@@ -17,9 +17,14 @@ export default {
     methods: {
         selectMail(id) {
             this.$router.push('/mail/app/' + id)
+        },
+        toggleRead(state, id) {
+            this.$emit('toggleReadState', state, id)
         }
     },
-    components: { mailPreview },
+    components: {
+        mailPreview,
+    },
     computed: {},
     created() { },
 }
