@@ -1,5 +1,4 @@
 import { noteServices } from '../services/note.services.js';
-
 export default {
   props: [],
   template: `
@@ -7,9 +6,15 @@ export default {
       This is a vue component of note-app
     </div>`,
   data() {
-    return {};
+    return {
+      notes: null,
+    };
   },
   methods: {},
   components: {},
   computed: {},
+  created() {
+    this.notes = noteServices.query();
+    console.log(this.notes);
+  },
 };

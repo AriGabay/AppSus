@@ -1,6 +1,6 @@
-import mailApp from '../../app-mail/mail-js/pages/mail-app.cmp.js';
-import homePage from './pages/main-home-page.cmp.js';
-import noteApp from '../../app-note/note-js/pages/note-app.cmp.js';
+import mailApp from '../js/apps/app-mail/mail-js/pages/mail-app.cmp.js';
+import homePage from '../js/pages/main-home-page.cmp.js';
+import noteApp from '../js/apps/app-note/note-js/pages/note-app.cmp.js';
 
 const routes = [
   {
