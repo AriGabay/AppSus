@@ -1,16 +1,16 @@
 import { storageService } from '../../../../services/async-storage.service.js';
 const gNotes = [
   {
-    type: 'NoteTxt',
+    type: 'noteTxt',
     isPinned: true,
     info: {
       txt: 'Fullstack Me Baby!',
     },
   },
   {
-    type: 'NoteImg',
+    type: 'noteImg',
     info: {
-      url: 'http://some-img/me',
+      url: 'https://freevector-images.s3.amazonaws.com/uploads/vector/preview/37150/37150.png',
       title: 'Me playing Mi',
     },
     style: {
@@ -18,13 +18,21 @@ const gNotes = [
     },
   },
   {
-    type: 'NoteTodos',
+    type: 'noteTodos',
     info: {
       label: 'How was it:',
       todos: [
         { txt: 'Do that', doneAt: null },
         { txt: 'Do this', doneAt: 187111111 },
+        { txt: 'Do !', doneAt: 187111111 },
       ],
+    },
+  },
+  {
+    type: 'noteVideo',
+    info: {
+      label: 'what we watch..?',
+      link: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
     },
   },
 ];
@@ -40,5 +48,12 @@ export const noteServices = {
 const NOTES_KEY = 'notes';
 
 function query() {
-  return storageService.query(NOTES_KEY);
+  return storageService.query(NOTES_KEY).then((notes) => {
+    if (!notes.length) {
+      storageService.postMany(NOTES_KEY, gNotes);
+      return Promise.resolve(gNotes);
+    } else {
+      return Promise.resolve(notes);
+    }
+  });
 }
