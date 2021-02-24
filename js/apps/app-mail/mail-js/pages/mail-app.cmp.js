@@ -1,20 +1,25 @@
-import { mailServices } from '../services/mail.services.js';
+import { mailService } from '../services/mail.services.js';
+import mailList from '../cmps/mail-list.cmp.js'
 export default {
   props: [],
   template: `
     <div>
-      This is a vue component of Mail
+    <mail-list :mails="mails"></mail-list>
+
+
     </div>`,
   data() {
     return {
-      mails: null
+      mails: null,
     };
   },
   methods: {},
   computed: {},
   created() {
-    mailServices.query()
-      .then(emails => this.mails = emails)
+    mailService.query()
+      .then(mails => this.mails = mails)
   },
-  components: {},
+  components: {
+    mailList
+  },
 };
