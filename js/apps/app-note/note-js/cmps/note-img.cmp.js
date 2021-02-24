@@ -1,7 +1,8 @@
+import { eventBus } from '../../../../services/event-bus-service.js';
 export default {
   props: ['note'],
   template: `
-    <div class="note-img">
+    <div class="note-img" @click="editNote">
     <div v-if="note.type==='noteImg'" :style="note.style">
         type: {{note.type}} <br/>
         <img :src="note.info.url" />
@@ -11,10 +12,12 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    editNote() {
+      this.$emit('editNote', this.note);
+    },
+  },
   components: {},
   computed: {},
-  created() {
-    console.log(this.note);
-  },
+  created() {},
 };
