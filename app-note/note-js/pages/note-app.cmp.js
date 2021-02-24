@@ -1,4 +1,4 @@
-import { noteService } from '../services/note.services.js';
+import { noteServices } from '../services/note.services.js';
 
 export default {
   props: [],
