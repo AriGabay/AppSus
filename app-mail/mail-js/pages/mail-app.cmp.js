@@ -1,3 +1,4 @@
+import { mailServices } from '../services/mail.services.js';
 export default {
   props: [],
   template: `
@@ -5,9 +6,15 @@ export default {
       This is a vue component of Mail
     </div>`,
   data() {
-    return {};
+    return {
+      mails: null
+    };
   },
   methods: {},
-  components: {},
   computed: {},
+  created() {
+    mailServices.query()
+      .then(emails => this.mails = emails)
+  },
+  components: {},
 };

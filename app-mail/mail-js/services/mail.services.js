@@ -1,4 +1,5 @@
-
+import storageService from '../../../app-main/main-js/services/async-storage.service'
+const MAIL_KEY = 'mailsDB'
 const gMails = [
     {
         from: 'AppSus',
@@ -36,3 +37,11 @@ const gMails = [
         sentAt: 1661272920810
     },
 ]
+
+export const mailServices = {
+    query
+}
+
+function query() {
+    return Promise.resolve(gMails)
+}
