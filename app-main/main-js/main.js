@@ -7,7 +7,9 @@ const options = {
   template: `
         <section>
             <app-header />
+            <div class="main-container main-size">
             <router-view />
+            </div>
             <footer><p> &copy; Coffeerights 2021</p></footer>
         </section>
     `,
