@@ -1,10 +1,15 @@
-*{box-sizing: border-box;}
+*{
+    box-sizing: border-box;
+}
 
 h1,h2,h3,h4,h5,h6,p{
     margin:0;
 }
 textarea{
     resize: none;
+}
+button{
+    border:1px solid black;
 }
 
 
@@ -23,22 +28,48 @@ flex:1;
 }
 .mail-main-nav{
     list-style: none;
+    padding: 10px;
 }
-.mail-main-nav >*{
-    padding: 3px;
-    cursor: pointer;
+.mail-main-nav>*{
+margin-bottom: 10px;
+padding: 10px;
+}
 
+
+/* ASIDE */
+aside li{
+    border-radius: 30px 60px 60px 30px;
+    cursor: pointer;
+    border:1px solid black;
+    text-align: center;
+    transition: .5s;
 }
+aside li:hover{
+    background-color: rgb(255, 153, 153);
+}
+
 /* MAIL LIST */
 
 .read{
     background-color: rgb(151, 149, 149);
+    font-weight: 300;
 }
 .mail-list{
     list-style: none;
 }
-.mail-list li{
+/* .mail-list li{
     border-bottom:1px solid black;
+} */
+
+.list-button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+.list-button-container button{
+    margin-inline-end:15px ;
+    padding:5px;
 }
 
 /* PREVIEW */
@@ -46,13 +77,30 @@ flex:1;
 .mail-preview-container{
     transition:all .3s;
     padding:5px;
+    margin-bottom: 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: bold;
+
 }
 .mail-preview-container:hover{
-    background-color: rgb(151, 149, 149);
+box-shadow: 0 0 1px 1px;
     cursor: pointer;
+}
+.mail-preview-container p span{
+    color: rgb(121, 116, 116);
+}
+
+.preview-buttons button{
+    background-color: transparent;
+    text-align: center;
+    padding: 6px;
+    border: none;
+    transition: all .5s;
+}
+.preview-buttons button:hover{
+    box-shadow: 0 0 1px 1px;
 }
 
 /* DETAILS */
@@ -67,10 +115,6 @@ padding: 10px;
 
 .mail-details-container>*{
     padding: 5px;
-    border-bottom: 1px solid black;
-}
-.mail-preview-container p span{
-    color: rgb(121, 116, 116);
 }
 
 
@@ -81,9 +125,68 @@ padding: 10px;
     box-shadow: 0px 0px 9px 1px #e4e5e8;
 }
 
+.new-mail-container input{
+    width: 100%;
+}
+
+.new-mail-container textarea{
+    width: 100%;
+}
 
 /* FILTER */
 .mail-filter{
 display: flex;
 justify-content: center;
+padding: 5px;
+align-items: center
+}
+.mail-filter>*{
+    margin-inline-end:4px ;
+    padding:5px;
+}
+
+/* SENT */
+.sent-mails-container{
+    list-style: none;
+}
+
+.sent-mail{
+    transition:all .3s;
+    padding:5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border-bottom: 1px solid black;    */
+}
+.sent-mail:hover{
+    background-color: rgb(151, 149, 149);
+    cursor: pointer;
+}
+.sent-mail p span{
+    color: rgb(121, 116, 116);
+}
+
+
+/* TRASH */
+.trashed-mail{
+    transition:all .3s;
+    padding:5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trashed-mail:hover{
+    background-color: rgb(151, 149, 149);
+    cursor: pointer;
+}
+.trashed-mail p span{
+    color: rgb(121, 116, 116);
+}
+
+
+/* MAIL - STATUS */
+
+.mail-status{
+    text-align: center;
 }

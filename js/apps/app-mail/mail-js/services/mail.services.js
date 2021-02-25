@@ -1,6 +1,5 @@
 import { storageService } from '../../../../services/async-storage.service.js';
 const MAIL_KEY = 'mailsDB';
-const MAIL_SENT = 'sentMailsDB';
 const gMails = [
   {
     from: 'AppSus',
@@ -9,6 +8,8 @@ const gMails = [
     body: 'Congrats! We are so happy to have you aboard... Please enjoy your stay.',
     isRead: true,
     sentAt: 1651133930594,
+    isDeleted: false,
+    isStar: false,
   },
   {
     from: 'Bituah Leumi',
@@ -17,6 +18,8 @@ const gMails = [
     body: 'Hello Shlomo, We are happy to inform you that you are a very lucky man!, You have won a tax free life!',
     isRead: false,
     sentAt: 1551133930594,
+    isDeleted: false,
+    isStar: false,
   },
   {
     from: 'Miphal Hapice',
@@ -25,6 +28,8 @@ const gMails = [
     body: 'Hey there, I need your bank acc. There is a new deposit waiting just for you!, Call me.!',
     isRead: true,
     sentAt: 1651134332594,
+    isDeleted: false,
+    isStar: false,
   },
   {
     from: 'Apple',
@@ -34,6 +39,8 @@ const gMails = [
       'Tomorrow at 18:00 we are meeting at our offices. All of our employees will be waiting At 17:30 at the conferece room for your brief.',
     isRead: false,
     sentAt: 1599563912318,
+    isDeleted: false,
+    isStar: false,
   },
   {
     from: 'Shufersal',
@@ -43,6 +50,8 @@ const gMails = [
       'Your Delivery will arrive To your house between the hours 8:00 - 10:00 Please make sure that someone is home.',
     isRead: false,
     sentAt: 1661272920810,
+    isDeleted: false,
+    isStar: false,
   },
   {
     from: 'Linkedin',
@@ -51,6 +60,8 @@ const gMails = [
     body: 'You have a new connection alert! Meet Eliezer Ben Yehude, QA Human Recruiter',
     isRead: true,
     sentAt: 1491242120210,
+    isDeleted: false,
+    isStar: false,
   },
   {
     from: 'Facebook',
@@ -59,6 +70,8 @@ const gMails = [
     body: 'Hello there, We havent seen you in our app for a few weeks. Come back!',
     isRead: false,
     sentAt: 1623451229671,
+    isDeleted: false,
+    isStar: false,
   },
   {
     from: 'Paolo Groppi',
@@ -67,6 +80,8 @@ const gMails = [
     body: 'Hey Yoni And Ary, you guys are the best! your project is the best from all off my teams!',
     isRead: true,
     sentAt: 1627893457122,
+    isDeleted: false,
+    isStar: false,
   },
 ];
 
@@ -75,6 +90,8 @@ export const mailService = {
   getmailById,
   addMail,
   updateMailState,
+  deleteMail,
+  starMail,
 };
 
 function updateMailState(state, id) {
@@ -83,29 +100,41 @@ function updateMailState(state, id) {
     storageService.put(MAIL_KEY, mail);
   });
 }
+function deleteMail(mail) {
+  return storageService.put(MAIL_KEY, mail).then((mails) => {
+    return Promise.resolve(mails);
+  });
+  // storageService.remove(MAIL_KEY, id)
+  //   .then(res => {
+  //     console.log(res)
+  //   })
+  // return Promise.resolve(mails)
+}
+
+function starMail(mail) {
+  return storageService.put(MAIL_KEY, mail).then((mails) => {
+    return Promise.resolve(mails);
+  });
+}
 
 function addMail(mail) {
   let mailToSave = {
     from: 'yonibar1999@gmail.com',
     to: mail.to,
-    id: _makeId(),
     subject: mail.subject,
     sentAt: Date.now(),
     body: mail.body,
+    isSent: true,
+    isDeleted: false,
+    isStar: false,
   };
-  console.log('before');
-  let sentMails = storageService.query(MAIL_SENT).then((mails) => {
-    if (!mails.length || !mails) {
-      mails = [];
-    }
+  console.log(mailToSave);
+  storageService.query(MAIL_KEY).then((mails) => {
+    console.log(mails, 'before');
     mails.push(mailToSave);
-    storageService.post(MAIL_SENT, mails);
+    console.log(mails, 'after');
+    storageService.post(MAIL_KEY, mailToSave);
   });
-
-  // console.log('x');
-  // mails.push(mailToSave)
-  // console.log(mails);
-  // })
 }
 
 function query() {

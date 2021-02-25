@@ -1,6 +1,7 @@
 import { mailService } from '../services/mail.services.js';
 import mailStatus from '../cmps/mail-status.cmp.js';
 import mailList from '../cmps/mail-list.cmp.js';
+import { eventBus } from '../../../../services/event-bus-service.js'
 
 
 export default {
@@ -13,7 +14,6 @@ export default {
         <li @click="goToStared">Stared</li>
         <li @click="goToSent">Sent Mails</li>
         <li @click="goToTrash">Trash</li>
-        <li><mail-status :mailsReadedPercent="mailsReadedPercent"></mail-status></li>
       </aside>
       <div class="main-mail-app-container">
           <router-view></router-view>
@@ -22,16 +22,18 @@ export default {
     data() {
         return {
             mails: null,
-            currView: 'inbox'
+            currView: 'inbox',
+            readedMails: null
+
         };
     },
     methods: {
         goToCompose() {
-            this.$router.push('/mail/app/compose')
+            this.$router.push('/mail/compose')
         },
         goToInbox() {
             this.currView = 'inbox'
-            this.$router.push('/mail/app')
+            this.$router.push('/mail')
         },
         goToStared() {
             this.currView = 'stared'
@@ -39,28 +41,27 @@ export default {
         },
         goToSent() {
             this.currView = 'sent'
-            console.log('Sent');
+            this.$router.push('/mail/sent')
         },
         goToTrash() {
             this.currView = 'trash'
-            console.log('Trash');
+            this.$router.push('/mail/trashed')
+
         }
     },
     computed: {
-        mailsReadedPercent() {
-            if (!this.mails) return
-            let readedMails = this.mails.filter(mail => {
-                return mail.isRead
-            })
-            return readedMails.length / this.mails.length * 100
-        }
     },
     created() {
         mailService.query()
             .then(mails => this.mails = mails)
+        // eventBus.$on('mailStateChange', mail)
+
     },
     components: {
         mailList,
         mailStatus,
+
     },
+    watch: {
+    }
 };
