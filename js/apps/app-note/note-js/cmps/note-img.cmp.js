@@ -5,6 +5,7 @@ export default {
     <div class="note-img" @click="editNote">
     <div v-if="note.type==='noteImg'" :style="note.style">
         type: {{note.type}} <br/>
+        Title: {{note.info.title}}
         <img :src="note.info.url" />
         <hr/>
         </div>

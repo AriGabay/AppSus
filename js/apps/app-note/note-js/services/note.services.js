@@ -1,7 +1,7 @@
 import { storageService } from '../../../../services/async-storage.service.js';
 const gNotes = [
   {
-    id: _makeId(),
+    id: makeId(),
     type: 'noteTxt',
     isPinned: true,
     info: {
@@ -9,7 +9,7 @@ const gNotes = [
     },
   },
   {
-    id: _makeId(),
+    id: makeId(),
     type: 'noteTxt',
     isPinned: true,
     info: {
@@ -17,7 +17,7 @@ const gNotes = [
     },
   },
   {
-    id: _makeId(),
+    id: makeId(),
     type: 'noteImg',
     info: {
       url: 'https://freevector-images.s3.amazonaws.com/uploads/vector/preview/37150/37150.png',
@@ -28,19 +28,19 @@ const gNotes = [
     },
   },
   {
-    id: _makeId(),
+    id: makeId(),
     type: 'noteTodos',
     info: {
       label: 'How was it:',
       todos: [
-        { txt: 'Do that', doneAt: null },
-        { txt: 'Do this', doneAt: 187111111 },
-        { txt: 'Do !', doneAt: 187111111 },
+        { txt: 'Do that', id: makeId(), doneAt: null },
+        { txt: 'Do this', id: makeId(), doneAt: 187111111 },
+        { txt: 'Do !', id: makeId(), doneAt: 187111111 },
       ],
     },
   },
   {
-    id: _makeId(),
+    id: makeId(),
     type: 'noteVideo',
     info: {
       label: 'what we watch..?',
@@ -51,6 +51,9 @@ const gNotes = [
 
 export const noteServices = {
   query,
+  updateNote,
+  makeId,
+  saveNewNote,
   // remove,
   // save,
   // getEmptyCar,
@@ -69,12 +72,24 @@ function query() {
     }
   });
 }
+function updateNote(newNote) {
+  return storageService.put(NOTES_KEY, newNote).then((res) => {
+    console.log(res);
+  });
+}
 
-function _makeId(length = 5) {
+function makeId(length = 5) {
   var text = '';
   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   for (var i = 0; i < length; i++) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
   return text;
+}
+function saveNewNote(newEntities) {
+  return storageService.post(NOTES_KEY, newEntities).then((notes) => {
+    // notes.push(newEntities);
+    // return Promise.resolve(notes);
+    console.log('notes:', notes);
+  });
 }
