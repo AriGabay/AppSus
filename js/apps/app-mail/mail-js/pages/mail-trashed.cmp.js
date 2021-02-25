@@ -10,8 +10,8 @@ export default {
             <p>From: <span>{{mail.from}}</span></p>
             <p>Subject: <span>{{mail.subject}}</span></p>
             <div class="trash-buttons-container">
-                <button>Return</button>
-                <button>X</button>
+                <button @click="restoreMail(mail)">Restore</button>
+                <button @click="destroyMail(mail)">X</button>
             </div>
             </li>
         </ul>
@@ -21,7 +21,30 @@ export default {
             mails: null
         }
     },
-    methods: {},
+    methods: {
+        restoreMail(mail) {
+            mail.isDeleted = false
+            mailService.updateMail(mail)
+            this.filterMails()
+        },
+        destroyMail(mail) {
+            if (!confirm('Are you sure?')) return
+            mailService.deleteMail(mail)
+                .then(() => {
+                    mailService.query(MAILS_KEY)
+                        .then(mails => {
+                            this.mails = mails
+                            this.filterMails()
+                        })
+                })
+
+        },
+        filterMails() {
+            this.mails = this.mails.filter(mail => {
+                return mail.isDeleted
+            })
+        }
+    },
     components: {},
     computed: {},
     created() {

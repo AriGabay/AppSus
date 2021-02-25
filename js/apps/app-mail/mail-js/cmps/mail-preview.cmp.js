@@ -5,7 +5,7 @@ export default {
       <p>From: <span>{{currMail.from}}</span></p>
       <p>Subject: <span>{{currMail.subject}}</span></p>
       <div class="preview-buttons">
-        <button @click.stop="reply">↪</button>
+        <button @click.stop="reply(currMail.id)">↪</button>
         <button @click.stop="toggleReadState(currMail.id)" v-if="!currMail.isRead">📨</button>
         <button @click.stop="toggleReadState(currMail.id)" v-if="currMail.isRead">✉️</button>
         <button v-if="currMail.isStar" @click.stop="starMail">⭐</button>
@@ -27,8 +27,8 @@ export default {
       mail.isDeleted = true
       this.$emit('deleteMail', mail)
     },
-    reply() {
-      console.log('X');
+    reply(id) {
+      this.$router.push(`/mail/compose/${id}`)
     },
     starMail() {
       console.log(this.currMail.isStar);
