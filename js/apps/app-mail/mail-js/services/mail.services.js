@@ -1,5 +1,5 @@
 import { storageService } from '../../../../services/async-storage.service.js';
-const MAIL_KEY = 'mailsDB'
+const MAIL_KEY = 'mailsDB';
 const gMails = [
   {
     from: 'AppSus',
@@ -9,7 +9,7 @@ const gMails = [
     isRead: true,
     sentAt: 1651133930594,
     isDeleted: false,
-    isStar: false
+    isStar: false,
   },
   {
     from: 'Bituah Leumi',
@@ -19,7 +19,7 @@ const gMails = [
     isRead: false,
     sentAt: 1551133930594,
     isDeleted: false,
-    isStar: false
+    isStar: false,
   },
   {
     from: 'Miphal Hapice',
@@ -29,28 +29,31 @@ const gMails = [
     isRead: true,
     sentAt: 1651134332594,
     isDeleted: false,
-    isStar: false
+    isStar: false,
   },
   {
     from: 'Apple',
     id: 'MlkM9',
     subject: 'Conference Meeting',
-    body: 'Tomorrow at 18:00 we are meeting at our offices. All of our employees will be waiting At 17:30 at the conferece room for your brief.',
+    body:
+      'Tomorrow at 18:00 we are meeting at our offices. All of our employees will be waiting At 17:30 at the conferece room for your brief.',
     isRead: false,
     sentAt: 1599563912318,
     isDeleted: false,
-    isStar: false
+    isStar: false,
   },
   {
     from: 'Shufersal',
     id: 'aUJ12',
     subject: 'Delivery',
-    body: 'Your Delivery will arrive To your house between the hours 8:00 - 10:00 Please make sure that someone is home.',
+    body:
+      'Your Delivery will arrive To your house between the hours 8:00 - 10:00 Please make sure that someone is home.',
     isRead: false,
     sentAt: 1661272920810,
     isDeleted: false,
-    isStar: false
-  }, {
+    isStar: false,
+  },
+  {
     from: 'Linkedin',
     id: 'Ai2P3l',
     subject: 'New connection',
@@ -58,8 +61,9 @@ const gMails = [
     isRead: true,
     sentAt: 1491242120210,
     isDeleted: false,
-    isStar: false
-  }, {
+    isStar: false,
+  },
+  {
     from: 'Facebook',
     id: 'Pw0m2',
     subject: 'Come Back',
@@ -67,8 +71,9 @@ const gMails = [
     isRead: false,
     sentAt: 1623451229671,
     isDeleted: false,
-    isStar: false
-  }, {
+    isStar: false,
+  },
+  {
     from: 'Paolo Groppi',
     id: 'o1M2g',
     subject: 'Sprint Delivery',
@@ -76,9 +81,9 @@ const gMails = [
     isRead: true,
     sentAt: 1627893457122,
     isDeleted: false,
-    isStar: false
+    isStar: false,
   },
-]
+];
 
 export const mailService = {
   query,
@@ -86,23 +91,19 @@ export const mailService = {
   addMail,
   updateMailState,
   deleteMail,
-  starMail
-}
-
+  starMail,
+};
 
 function updateMailState(state, id) {
-  getmailById(id)
-    .then(mail => {
-      mail.isRead = state
-      storageService.put(MAIL_KEY, mail)
-    })
-
+  getmailById(id).then((mail) => {
+    mail.isRead = state;
+    storageService.put(MAIL_KEY, mail);
+  });
 }
 function deleteMail(mail) {
-  return storageService.put(MAIL_KEY, mail)
-    .then(mails => {
-      return Promise.resolve(mails)
-    })
+  return storageService.put(MAIL_KEY, mail).then((mails) => {
+    return Promise.resolve(mails);
+  });
   // storageService.remove(MAIL_KEY, id)
   //   .then(res => {
   //     console.log(res)
@@ -111,16 +112,13 @@ function deleteMail(mail) {
 }
 
 function starMail(mail) {
-  return storageService.put(MAIL_KEY, mail)
-    .then(mails => {
-      return Promise.resolve(mails)
-    })
+  return storageService.put(MAIL_KEY, mail).then((mails) => {
+    return Promise.resolve(mails);
+  });
 }
 
 function addMail(mail) {
-
-  let mailToSave =
-  {
+  let mailToSave = {
     from: 'yonibar1999@gmail.com',
     to: mail.to,
     subject: mail.subject,
@@ -128,32 +126,29 @@ function addMail(mail) {
     body: mail.body,
     isSent: true,
     isDeleted: false,
-    isStar: false
-  }
+    isStar: false,
+  };
   console.log(mailToSave);
-  storageService.query(MAIL_KEY)
-    .then(mails => {
-      console.log(mails, 'before');
-      mails.push(mailToSave)
-      console.log(mails, 'after');
-      storageService.post(MAIL_KEY, mailToSave)
-    })
-
+  storageService.query(MAIL_KEY).then((mails) => {
+    console.log(mails, 'before');
+    mails.push(mailToSave);
+    console.log(mails, 'after');
+    storageService.post(MAIL_KEY, mailToSave);
+  });
 }
 
 function query() {
-  return storageService.query(MAIL_KEY)
-    .then(mails => {
-      if (!mails.length) {
-        storageService.postMany(MAIL_KEY, gMails)
-        return Promise.resolve(gMails)
-      } else {
-        return Promise.resolve(mails)
-      }
-    })
+  return storageService.query(MAIL_KEY).then((mails) => {
+    if (!mails.length) {
+      storageService.postMany(MAIL_KEY, gMails);
+      return Promise.resolve(gMails);
+    } else {
+      return Promise.resolve(mails);
+    }
+  });
 }
 function getmailById(mailId) {
-  return storageService.get(MAIL_KEY, mailId)
+  return storageService.get(MAIL_KEY, mailId);
 }
 
 function _makeId(length = 5) {
@@ -164,4 +159,3 @@ function _makeId(length = 5) {
   }
   return text;
 }
-

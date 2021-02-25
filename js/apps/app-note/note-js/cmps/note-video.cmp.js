@@ -17,7 +17,4 @@ export default {
   },
   components: {},
   computed: {},
-  created() {
-    console.log(this.note);
-  },
 };

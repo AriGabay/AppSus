@@ -35,11 +35,11 @@ const routes = [
       },
       {
         path: '/mail/sent',
-        component: mailSent
+        component: mailSent,
       },
       {
         path: '/mail/trashed',
-        component: mailTrashed
+        component: mailTrashed,
       },
       {
         path: '/mail/stared',
