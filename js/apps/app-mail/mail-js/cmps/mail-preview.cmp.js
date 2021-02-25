@@ -2,18 +2,38 @@ export default {
   props: ['mail'],
   template: `
     <div class="mail-preview-container">
-      <p>From: <span>{{mail.from}}</span></p>
-      <p>Subject: <span>{{mail.subject}}</span></p>
-      <button @click.stop="toggleReadState(mail.id)" v-if="!mail.isRead">Read</button>
-      <button @click.stop="toggleReadState(mail.id)" v-if="mail.isRead">Unread</button>
+      <p>From: <span>{{currMail.from}}</span></p>
+      <p>Subject: <span>{{currMail.subject}}</span></p>
+      <div class="preview-buttons">
+        <button @click.stop="reply">↪</button>
+        <button @click.stop="toggleReadState(currMail.id)" v-if="!currMail.isRead">📨</button>
+        <button @click.stop="toggleReadState(currMail.id)" v-if="currMail.isRead">✉️</button>
+        <button v-if="currMail.isStar" @click.stop="starMail">⭐</button>
+        <button v-if="!currMail.isStar" @click.stop="starMail">☆</button>
+        <button @click.stop="deleteMail(currMail)">x</button>
+      </div>
     </div>`,
   data() {
-    return {}
+    return {
+      currMail: this.mail
+    }
   },
   methods: {
     toggleReadState(id) {
-      this.mail.isRead = !this.mail.isRead
-      this.$emit('toggleRead', this.mail.isRead, id)
+      this.currMail.isRead = !this.currMail.isRead
+      this.$emit('toggleRead', this.currMail.isRead, id)
+    },
+    deleteMail(mail) {
+      mail.isDeleted = true
+      this.$emit('deleteMail', mail)
+    },
+    reply() {
+      console.log('X');
+    },
+    starMail() {
+      console.log(this.currMail.isStar);
+      this.currMail.isStar = !this.currMail.isStar
+      this.$emit('starMail', this.currMail)
     }
   },
   components: {},

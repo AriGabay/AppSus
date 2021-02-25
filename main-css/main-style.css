@@ -4,12 +4,13 @@
 
 body {
   margin: 0;
+  font-family: 'Maven Pro', sans-serif;
 }
 button{
   cursor: pointer;
   border-radius: 2em;
   outline: none;
-  padding:3px;
+  padding:5px;
 }
 
 /* HELPER */
