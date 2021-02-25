@@ -32,6 +32,7 @@ export default {
         to: this.to
       }
       mailService.addMail(newMail)
+      this.$router.push('/mail')
     }
   },
   components: {},

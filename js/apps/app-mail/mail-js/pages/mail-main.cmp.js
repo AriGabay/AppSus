@@ -37,7 +37,7 @@ export default {
         },
         goToStared() {
             this.currView = 'stared'
-            console.log('Stared');
+            this.$router.push('/mail/stared')
         },
         goToSent() {
             this.currView = 'sent'

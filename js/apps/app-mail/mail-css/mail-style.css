@@ -184,9 +184,26 @@ align-items: center
     color: rgb(121, 116, 116);
 }
 
+/* STARED */
+.stared-mail{
+    transition:all .3s;
+    padding:5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stared-mail:hover{
+    background-color: rgb(151, 149, 149);
+    cursor: pointer;
+}
+.stared-mail p span{
+    color: rgb(121, 116, 116);
+}
 
 /* MAIL - STATUS */
 
 .mail-status{
     text-align: center;
 }
+

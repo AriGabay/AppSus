@@ -3,10 +3,11 @@ import mailMain from '../js/apps/app-mail/mail-js/pages/mail-main.cmp.js';
 import mailDetails from '../js/apps/app-mail/mail-js/pages/mail-details.cmp.js';
 import mailCompose from './apps/app-mail/mail-js/cmps/mail-compose.cmp.js';
 import mailSent from '../js/apps/app-mail/mail-js/pages/mail-sent-list.cmp.js';
-import mailHome from '../js/apps/app-mail/mail-js/pages/mail-home.cmp.js';
 import mailTrashed from '../js/apps/app-mail/mail-js/pages/mail-trashed.cmp.js';
+import mailStar from '../js/apps/app-mail/mail-js/pages/mail-star.cmp.js';
+import mailReplay from '../js/apps/app-mail/mail-js/cmps/mail-replay.cmp.js';
 
-import noteEdit from './apps/app-note/note-js/pages/note-edit.cmp.js';
+// import noteEdit from './apps/app-note/note-js/pages/note-edit.cmp.js';
 
 import homePage from '../js/pages/main-home-page.cmp.js';
 import noteApp from '../js/apps/app-note/note-js/pages/note-app.cmp.js';
@@ -41,9 +42,18 @@ const routes = [
         component: mailTrashed
       },
       {
+        path: '/mail/stared',
+        component: mailStar
+      },
+      {
         path: '/mail/:mailId?',
         component: mailDetails,
       },
+      {
+        path: '/mail/compose/:mailId?',
+        component: mailReplay,
+      },
+
     ],
   },
 
