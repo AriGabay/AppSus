@@ -83,6 +83,16 @@ const gMails = [
     isDeleted: false,
     isStar: false,
   },
+  {
+    from: 'Rotem Carmon',
+    id: 'u2mLv',
+    subject: 'Course Schedule',
+    body: 'Hey Yoni And Ary, you guys are the best! your project is the best from all off my teams!',
+    isRead: false,
+    sentAt: 1627893457122,
+    isDeleted: true,
+    isStar: false,
+  },
 ];
 
 export const mailService = {
@@ -90,8 +100,9 @@ export const mailService = {
   getmailById,
   addMail,
   updateMailState,
-  deleteMail,
+  updateMail,
   starMail,
+  deleteMail
 };
 
 function updateMailState(state, id) {
@@ -100,7 +111,7 @@ function updateMailState(state, id) {
     storageService.put(MAIL_KEY, mail);
   });
 }
-function deleteMail(mail) {
+function updateMail(mail) {
   return storageService.put(MAIL_KEY, mail).then((mails) => {
     return Promise.resolve(mails);
   });
@@ -111,11 +122,18 @@ function deleteMail(mail) {
   // return Promise.resolve(mails)
 }
 
+function deleteMail(mail) {
+  return storageService.remove(MAIL_KEY, mail.id)
+    .then(res => Promise.resolve())
+}
+
 function starMail(mail) {
   return storageService.put(MAIL_KEY, mail).then((mails) => {
     return Promise.resolve(mails);
   });
 }
+
+
 
 function addMail(mail) {
   let mailToSave = {

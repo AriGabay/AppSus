@@ -9,10 +9,7 @@ export default {
     <div>
       <mail-filter @filtered="setFilter"></mail-filter>
       <mail-status :mailsReadedPercent="mailsReadedPercent"></mail-status>
-      <mail-list :mails="mailsToShow" @delete="deleteMail" @starMail="starMail" @resetFilter="resetFilter" @toggleReadState="setReadState"></mail-list>
-    
-
-
+      <mail-list :mails="mailsToShow" @delete="updateMail" @starMail="starMail" @resetFilter="resetFilter" @toggleReadState="setReadState"></mail-list>
     </div>`,
   data() {
     return {
@@ -24,9 +21,9 @@ export default {
     resetFilter() {
       this.filterBy = null
     },
-    deleteMail(mail) {
+    updateMail(mail) {
       // console.log(id, 'Att Mail-app');
-      mailService.deleteMail(mail)
+      mailService.updateMail(mail)
         .then(mail => { })
     },
     setReadState(state, id) {
@@ -45,8 +42,8 @@ export default {
   },
   computed: {
     mailsToShow() {
-      let filterdMails;
       if (!this.filterBy) return this.mails
+      let filterdMails;
       filterdMails = this.mails.filter(mail => {
         return mail.subject.toLowerCase().includes(this.filterBy.toLowerCase())
       })

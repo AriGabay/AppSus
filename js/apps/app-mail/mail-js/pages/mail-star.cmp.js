@@ -5,11 +5,11 @@ export default {
     props: [],
     template: `
     <div>
-    <h1>Stared ⭐</h1>
-    <ul>
+        <ul>
+            <h1>Stared ⭐</h1>
             <li class="stared-mail" v-for="mail in mails" :key="mail.id">
-            <p>From: <span>{{mail.from}}</span></p>
-            <p>Subject: <span>{{mail.subject}}</span></p>
+                <p>Subject: <span>{{mail.subject}}</span></p>
+                <p>From: <span>{{mail.from}}</span></p>
             </li>
         </ul>
     </div>`,
@@ -25,7 +25,7 @@ export default {
         mailService.query(MAILS_KEY)
             .then(mails => {
                 this.mails = mails.filter(mail => {
-                    return mail.isStar
+                    return mail.isStar && !mail.isDeleted
                 })
             })
     },
