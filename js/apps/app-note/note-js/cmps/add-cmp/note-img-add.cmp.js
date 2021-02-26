@@ -29,7 +29,6 @@ export default {
     createNote() {
       if (!this.title || !this.text || !this.url || !this.backgroundColorFromUser === 'black') return;
       else {
-        console.log('2');
         const newNote = {
           id: noteServices.makeId(),
           type: this.type,
@@ -40,8 +39,8 @@ export default {
           style: {
             backgroundColor: this.backgroundColorFromUser,
           },
+          isPinned: false,
         };
-        console.log('newNote:', newNote);
         this.$emit('createNewNote', newNote);
       }
     },

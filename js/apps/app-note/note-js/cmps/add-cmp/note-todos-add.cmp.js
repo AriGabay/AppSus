@@ -28,6 +28,7 @@ export default {
           label: this.label,
           todos: this.todos,
         },
+        isPinned: false,
         type: 'noteTodos',
       };
       this.$emit('createNewNote', newNote);

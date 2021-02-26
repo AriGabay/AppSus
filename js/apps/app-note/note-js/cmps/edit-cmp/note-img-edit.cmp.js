@@ -24,19 +24,13 @@ export default {
   },
   methods: {
     updateNote() {
-      console.log(this.note);
       this.newNote.info.title = this.title;
       this.newNote.info.url = this.url;
-      console.log(' this.style:', this.style);
-      console.log('this.newNote.style.backgroundColor___BEFORE:', this.newNote.style.backgroundColor);
       this.newNote.style.backgroundColor = this.style;
-      console.log('this.newNote.style.backgroundColor__AFTER:', this.newNote.style.backgroundColor);
       this.$emit('updateNote', this.newNote);
     },
   },
   components: {},
   computed: {},
-  created() {
-    console.log(this.note);
-  },
+  created() {},
 };

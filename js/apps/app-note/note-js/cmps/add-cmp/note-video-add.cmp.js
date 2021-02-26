@@ -31,6 +31,7 @@ export default {
           label: this.title,
           link: this.url,
         },
+        isPinned: false,
       };
       this.$emit('createNewNote', newNote);
     },

@@ -7,6 +7,9 @@ export default {
         type: {{note.type}} <br/>
         Title: {{note.info.title}}
         <img :src="note.info.url" />
+        <button @click.stop="removeNote">Remove Note</button>
+        <button v-if="!note.isPinned" @click.stop="togglePin">📌</button>
+        <button v-if="note.isPinned" @click.stop="togglePin">📍</button>
         <hr/>
         </div>
     </div>`,
@@ -16,6 +19,12 @@ export default {
   methods: {
     editNote() {
       this.$emit('editNote', this.note);
+    },
+    removeNote() {
+      this.$emit('removeNote', this.note);
+    },
+    togglePin() {
+      this.$emit('togglePin', this.note);
     },
   },
   components: {},

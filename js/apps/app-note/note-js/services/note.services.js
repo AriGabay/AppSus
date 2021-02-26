@@ -11,7 +11,7 @@ const gNotes = [
   {
     id: makeId(),
     type: 'noteTxt',
-    isPinned: true,
+    isPinned: false,
     info: {
       txt: 'Hiiii Baby!',
     },
@@ -26,6 +26,7 @@ const gNotes = [
     style: {
       backgroundColor: '#00d',
     },
+    isPinned: false,
   },
   {
     id: makeId(),
@@ -38,6 +39,7 @@ const gNotes = [
         { txt: 'Do !', id: makeId(), doneAt: 187111111 },
       ],
     },
+    isPinned: false,
   },
   {
     id: makeId(),
@@ -46,6 +48,7 @@ const gNotes = [
       label: 'what we watch..?',
       link: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
     },
+    isPinned: false,
   },
 ];
 
@@ -54,11 +57,7 @@ export const noteServices = {
   updateNote,
   makeId,
   saveNewNote,
-  // remove,
-  // save,
-  // getEmptyCar,
-  // getById,
-  // getNextCarId
+  removeNote,
 };
 const NOTES_KEY = 'notes';
 
@@ -87,9 +86,14 @@ function makeId(length = 5) {
   return text;
 }
 function saveNewNote(newEntities) {
-  return storageService.post(NOTES_KEY, newEntities).then((notes) => {
-    // notes.push(newEntities);
-    // return Promise.resolve(notes);
-    console.log('notes:', notes);
+  return storageService.post(NOTES_KEY, newEntities).then((note) => {
+    return note;
+  });
+}
+function removeNote(id) {
+  console.log('id:', id);
+  return storageService.remove(NOTES_KEY, id).then((res) => {
+    console.log('res:', res);
+    return res;
   });
 }

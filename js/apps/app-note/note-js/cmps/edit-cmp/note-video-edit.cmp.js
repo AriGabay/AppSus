@@ -23,7 +23,6 @@ export default {
     updateNote() {
       this.newNote.info.label = this.title;
       this.newNote.info.link = this.url;
-      console.log('this.newNote:', this.newNote);
       this.$emit('updateNote', this.newNote);
     },
   },
