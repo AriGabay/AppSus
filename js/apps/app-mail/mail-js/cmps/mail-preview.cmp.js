@@ -31,7 +31,6 @@ export default {
       this.$router.push(`/mail/compose/${id}`)
     },
     starMail() {
-      console.log(this.currMail.isStar);
       this.currMail.isStar = !this.currMail.isStar
       this.$emit('starMail', this.currMail)
     }

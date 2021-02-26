@@ -22,7 +22,6 @@ export default {
       this.filterBy = null
     },
     updateMail(mail) {
-      // console.log(id, 'Att Mail-app');
       mailService.updateMail(mail)
         .then(mail => { })
     },
@@ -37,7 +36,7 @@ export default {
     },
     starMail(mail) {
       mailService.starMail(mail)
-        .then(res => console.log(res))
+        .then(res => { })
     }
   },
   computed: {

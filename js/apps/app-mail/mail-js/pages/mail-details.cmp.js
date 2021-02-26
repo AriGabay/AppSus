@@ -36,7 +36,6 @@ export default {
         mailService.getmailById(id)
             .then(mail => {
                 this.mail = mail
-                console.log(mail);
             })
     },
 }

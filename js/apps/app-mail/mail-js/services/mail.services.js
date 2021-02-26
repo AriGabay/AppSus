@@ -9,7 +9,7 @@ const gMails = [
     isRead: true,
     sentAt: 1651133930594,
     isDeleted: false,
-    isStar: false,
+    isStar: true,
   },
   {
     from: 'Bituah Leumi',
@@ -18,7 +18,7 @@ const gMails = [
     body: 'Hello Shlomo, We are happy to inform you that you are a very lucky man!, You have won a tax free life!',
     isRead: false,
     sentAt: 1551133930594,
-    isDeleted: false,
+    isDeleted: true,
     isStar: false,
   },
   {
@@ -29,7 +29,7 @@ const gMails = [
     isRead: true,
     sentAt: 1651134332594,
     isDeleted: false,
-    isStar: false,
+    isStar: true,
   },
   {
     from: 'Apple',
@@ -40,7 +40,7 @@ const gMails = [
     isRead: false,
     sentAt: 1599563912318,
     isDeleted: false,
-    isStar: false,
+    isStar: true,
   },
   {
     from: 'Shufersal',
@@ -79,7 +79,7 @@ const gMails = [
     subject: 'Sprint Delivery',
     body: 'Hey Yoni And Ary, you guys are the best! your project is the best from all off my teams!',
     isRead: true,
-    sentAt: 1627893457122,
+    sentAt: 158742353179,
     isDeleted: false,
     isStar: false,
   },
@@ -87,12 +87,42 @@ const gMails = [
     from: 'Rotem Carmon',
     id: 'u2mLv',
     subject: 'Course Schedule',
-    body: 'Hey Yoni And Ary, you guys are the best! your project is the best from all off my teams!',
+    body: 'Good luck our course, Every day from 8:30 - 04:30, if you wont die untill the end we guarantee 60% of our people will reach their 40s ',
     isRead: false,
-    sentAt: 1627893457122,
+    sentAt: 1614108454162,
     isDeleted: true,
     isStar: false,
   },
+  {
+    from: 'Linkedin',
+    id: '0M2sN',
+    subject: 'New job alert!',
+    body: 'New Job alert neer Kfar Tavor, Come on and give a shot!',
+    isRead: false,
+    sentAt: 1649529583452,
+    isDeleted: true,
+    isStar: false,
+  },
+  {
+    from: 'Instagram',
+    id: 'U27Ka',
+    subject: 'Congratz!',
+    body: 'You have reached 1M Followers!',
+    isRead: false,
+    sentAt: 1667407149549,
+    isDeleted: false,
+    isStar: true,
+  }, {
+    from: 'Puki ben david',
+    id: 'p0M2K',
+    subject: 'Hello',
+    body: 'Hey bro, im surfing at New Zealand, wanna join?! here is my phone number((555)-929-4992), call Me',
+    isRead: false,
+    sentAt: 1540973124606,
+    isDeleted: true,
+    isStar: false,
+  },
+
 ];
 
 export const mailService = {
@@ -115,11 +145,7 @@ function updateMail(mail) {
   return storageService.put(MAIL_KEY, mail).then((mails) => {
     return Promise.resolve(mails);
   });
-  // storageService.remove(MAIL_KEY, id)
-  //   .then(res => {
-  //     console.log(res)
-  //   })
-  // return Promise.resolve(mails)
+
 }
 
 function deleteMail(mail) {
@@ -146,11 +172,8 @@ function addMail(mail) {
     isDeleted: false,
     isStar: false,
   };
-  console.log(mailToSave);
   storageService.query(MAIL_KEY).then((mails) => {
-    console.log(mails, 'before');
     mails.push(mailToSave);
-    console.log(mails, 'after');
     storageService.post(MAIL_KEY, mailToSave);
   });
 }

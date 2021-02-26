@@ -8,8 +8,8 @@ export default {
         <ul>
             <h1>Stared ⭐</h1>
             <li class="stared-mail" v-for="mail in mails" :key="mail.id">
-                <p>Subject: <span>{{mail.subject}}</span></p>
                 <p>From: <span>{{mail.from}}</span></p>
+                <p>Subject: <span>{{mail.subject}}</span></p>
             </li>
         </ul>
     </div>`,

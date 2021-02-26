@@ -25,12 +25,9 @@ export default {
     created() {
         mailService.query(MAIL_KEY)
             .then(mails => {
-                console.log(mails);
                 this.sentMails = mails.filter(mail => {
-                    console.log(mail.isSent);
                     return mail.isSent
                 })
-                console.log(this.sentMails);
             })
     },
 }
