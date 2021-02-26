@@ -3,16 +3,21 @@ import { noteServices } from '../../services/note.services.js';
 export default {
   template: `
   <div>
-    <div >
-        <form>
+    <div class="flex-center-column">
+        <form class="flex-center-column">
           <div v-if="todos" v-for="todo in todos" :key="todo.id">
             <input type="text" v-model="todo.txt" placeholder="enter todo"/>
           </div>
         </form>
-        <button @click="addTodo">Add Todo</button>
-    </div>
+        <div class="flex-center-column">
     <input type="text" v-model="label" placeholder="label">
     <button @click="updateNote">Submit</button>
+    </div>
+        <div class="flex-center-column">
+        <button @click="addTodo">Add Todo</button>
+        </div>
+    </div>
+
   </div>
     `,
   data() {
@@ -32,6 +37,7 @@ export default {
         type: 'noteTodos',
       };
       this.$emit('createNewNote', newNote);
+      this.$emit('submitBack');
     },
     addTodo() {
       this.todos.push({

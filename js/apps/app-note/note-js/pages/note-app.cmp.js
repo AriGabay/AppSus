@@ -17,14 +17,16 @@ export default {
   props: [],
   template: `
     <div class="notes-preview" v-if="notes" >
+      <div class="nav-add">  
       <nav-add @addByType="addByType"></nav-add>
-      <button @click="removeAdd">Back</button>
-            <div class="notes-container">
-              <component v-if="!noteFromComp && !typeChoose" :class="{ pin: note.isPinned}" v-for="note in notes" :is="note.type" :note="note" @editNote="toEdit" @removeNote="removeNote" @togglePin="togglePin"></component>
-          </div>
-            <component v-if="noteFromComp && !typeChoose" :is="type" :note="noteFromComp" @noteFromCompToNull="resetNoteFromComp" @updateNote="updateNote"></component>    
-            <component v-if="typeChoose" :is="typeChoose" @createNewNote="createNewNote"></component>
-      </div>`,
+    </div>
+    <div class="notes-container">
+      <component v-if="!noteFromComp && !typeChoose" :class="{ pin: note.isPinned}" v-for="note in notes" :is="note.type" :note="note" @editNote="toEdit" @removeNote="removeNote" @togglePin="togglePin"></component>
+    </div>
+    <component v-if="noteFromComp && !typeChoose" :is="type" :note="noteFromComp" @noteFromCompToNull="resetNoteFromComp" @updateNote="updateNote" @submitBack="removeAdd"></component>    
+    <component v-if="typeChoose" :is="typeChoose" @createNewNote="createNewNote" @submitBack="removeAdd"></component>
+    <div class="btn-back"><button class="btn-back" @click="removeAdd">Back</button></div>
+  </div>`,
   data() {
     return {
       notes: null,

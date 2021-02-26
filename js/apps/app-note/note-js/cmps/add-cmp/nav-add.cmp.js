@@ -3,7 +3,7 @@ export default {
   template: `
     <div>
     <form @submit.prevent="sendType">
-      <label for="selectTypeValue">Select note to add</label>
+      <label for="selectTypeValue">Select note type to add</label>
       <select v-model="typeChoose" id="selectTypeValue">
       <option value="" disabled selected>Select your option</option>
         <option selected value="noteTxt">Note Text</option>
@@ -22,6 +22,7 @@ export default {
   methods: {
     sendType() {
       this.$emit('addByType', this.typeChoose);
+      this.$emit('submitBack');
     },
   },
   components: {},

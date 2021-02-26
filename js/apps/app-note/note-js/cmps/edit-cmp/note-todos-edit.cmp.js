@@ -3,14 +3,18 @@ export default {
   template: `
   <div>
     <div >
-        <form>
+      <div class="flex-center-column flex-center-column">
+      <input type="text" v-model="title">
+        </div>
+        <form class="flex-center-column">
           <div v-if="todoObjs" v-for="todo in todoObjs" :key="todo.id">
             <input type="text" v-model="todo.txt" />
           </div>
         </form>
     </div>
+    <div class="flex-center-column">
     <button @click="updateNote">Submit</button>
-    <input type="text" v-model="title">
+</div>
   </div>
     `,
   data() {
@@ -28,6 +32,7 @@ export default {
       if (!this.newNote) return;
       this.updateTitle();
       this.$emit('updateNote', this.newNote);
+      this.$emit('submitBack');
     },
   },
   components: {},

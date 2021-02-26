@@ -1,17 +1,28 @@
 export default {
   props: ['note'],
   template: `
-    <div @click="editNote">
+    <div class="note note-video" :class="{readMore:isReadMore}" @click="editNote">
+      <div class="note-video-title">
       <h2>{{note.info.label}}</h2>
-    <video width="320" height="240" controls>
-  <source :src="note.info.link" type="video/mp4">
-</video>
-<button @click.stop="removeNote">Remove Note</button>
-<button v-if="!note.isPinned" @click.stop="togglePin">📌</button>
-        <button v-if="note.isPinned" @click.stop="togglePin">📍</button>
-    </div>`,
+    </div>
+    <div class="note-video-video">
+    <video width="320" height="240" controls class="video-note">
+      <source :src="note.info.link" type="video/mp4">
+    </video>
+    </div>
+    <div class="btn-pin-remove">
+        <button @click.stop="removeNote">Remove Note 🗑️</button>
+        <button v-if="!note.isPinned" @click.stop="togglePin">Pin 📌</button>
+        <button v-if="note.isPinned" @click.stop="togglePin">Unpin 📍</button>
+        <button v-if="!isReadMore"  @click.stop="readMore">Read More</button>    
+        <button  v-if="isReadMore" @click.stop="readLess">Read Less</button>    
+    </div>
+</div>
+    `,
   data() {
-    return {};
+    return {
+      isReadMore: false,
+    };
   },
   methods: {
     editNote() {
@@ -22,6 +33,13 @@ export default {
     },
     togglePin() {
       this.$emit('togglePin', this.note);
+    },
+    readMore() {
+      console.log('this.isReadMore:', this.isReadMore);
+      this.isReadMore = !this.isReadMore;
+    },
+    readLess() {
+      this.isReadMore = !this.isReadMore;
     },
   },
   components: {},

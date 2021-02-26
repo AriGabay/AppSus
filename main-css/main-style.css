@@ -6,15 +6,17 @@ body {
   margin: 0;
   font-family: 'Maven Pro', sans-serif;
 }
-button{
+
+button {
   cursor: pointer;
   border-radius: 2em;
   outline: none;
-  padding:5px;
-  background-color:rgb(214 237 249);
+  padding: 5px 10px;
+  background-color: rgb(214 237 249);
   transition: all .3s;
 }
-button:hover{
+
+button:hover {
   background-color: rgb(255, 153, 153);
 }
 
@@ -35,7 +37,7 @@ button:hover{
   box-shadow: 0px 2px 20px 1px #a1a1a1;
 
   margin-bottom: 5px;
-  background-color:rgb(214 237 249);
+  background-color: rgb(214 237 249);
 
 }
 
@@ -44,7 +46,7 @@ button:hover{
   align-items: center;
   justify-content: space-around;
   width: auto;
-  background-color:rgb(214 237 249);
+  background-color: rgb(214 237 249);
 }
 
 .main-nav>* {
@@ -70,7 +72,7 @@ footer {
   align-items: center;
   justify-content: center;
   box-shadow: 0px 0px 20px 1px #a1a1a1;
-  background-color:rgb(214 237 249);
+  background-color: rgb(214 237 249);
   margin-top: 5px;
   height: 100px
 }
@@ -78,15 +80,17 @@ footer {
 
 /* @@@@@@@@@@@@@@@@ HOME PAGE @@@@@@@@@@@@@@ */
 
-.hero{
+.hero {
   position: relative;
   text-align: center;
   color: black;
-  padding:0 !important;
+  padding: 0 !important;
 }
-.hero img{
+
+.hero img {
   width: 100%;
 }
+
 .centered {
   position: absolute;
   top: 25%;
@@ -94,53 +98,72 @@ footer {
   transform: translate(-50%, -50%);
   color: rgba(0, 0, 0, 0.63);
 }
+<<<<<<< HEAD
 .centered h1{
   font-size: 3em;
+=======
+
+.centered h1 {
+  font-size: 45px;
+>>>>>>> 6bd397db50e9793da77060b2f7d862c844f4108e
   width: auto;
-  margin-bottom:100px;
+  margin-bottom: 100px;
 }
-.centered h1 span{
+
+.centered h1 span {
   font-weight: bold;
-  color: rgba(0, 0, 0,0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
+<<<<<<< HEAD
 .centered p{
   font-size: 1.2em;
+=======
+
+.centered p {
+  font-size: 20px;
+>>>>>>> 6bd397db50e9793da77060b2f7d862c844f4108e
   line-height: 1.5;
   width: auto;
 }
 
 
 /* about-us */
-.about-header{
+.about-header {
   text-align: center;
-  padding:30px;
+  padding: 30px;
   font-size: 40px;
 }
-.about-us{
+
+.about-us {
   display: flex;
 }
+
 /* ARI */
-.all-about-ari{
+.all-about-ari {
   flex-basis: 50%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
 }
+
 .icon-img {
   width: 40px;
   height: 40px;
   margin-inline-end: 8px;
   margin-top: 65px;
 }
+
 .icons {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
+
 .icons :last-child {
   align-self: flex-end;
 }
+
 .icon-img img {
   padding: 7px;
   width: 40px;
@@ -148,16 +171,18 @@ footer {
 }
 
 .icon-img {
-  background-color:rgb(214 237 249);
+  background-color: rgb(214 237 249);
   border-radius: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .img-about {
   max-width: 20.1875rem;
   max-height: 20.1875rem;
 }
+
 .img-profile img {
   display: block;
   width: 223px;
@@ -166,13 +191,15 @@ footer {
   border-radius: 50%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-} 
-.img-profile{
-display: flex;
-align-items: center;
-margin: 30px 0;
-align-self: center;
 }
+
+.img-profile {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  align-self: center;
+}
+
 .about-txt {
   text-align: center;
   display: flex;
@@ -181,17 +208,18 @@ align-self: center;
   flex-direction: column;
   line-height: 1.5;
 }
+
 /* ARI END */
 
-.about-us{
+.about-us {
   width: 100%;
-height: 600px;
-display: flex;
-justify-content: space-between;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* YONI */
-.all-about-yoni{
+.all-about-yoni {
   flex-basis: 50%;
   display: flex;
   flex-direction: column;

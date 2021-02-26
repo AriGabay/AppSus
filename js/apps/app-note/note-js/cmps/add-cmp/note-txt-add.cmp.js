@@ -3,12 +3,11 @@ import { noteServices } from '../../services/note.services.js';
 export default {
   props: [],
   template: `
-    <div>
-      <form @submit="createNote">
+    <div class="flex-center-column">
+      <form @submit="createNote" class="flex-center-column">
         <input type="text" placeholder="Note Text" v-model="text">
         <button>Submit</button>
       </form>
-      {{text}}
     </div>`,
   data() {
     return {
@@ -27,6 +26,7 @@ export default {
         isPinned: false,
       };
       this.$emit('createNewNote', newNote);
+      this.$emit('submitBack');
     },
   },
   components: {},
