@@ -98,14 +98,8 @@ footer {
   transform: translate(-50%, -50%);
   color: rgba(0, 0, 0, 0.63);
 }
-<<<<<<< HEAD
 .centered h1{
   font-size: 3em;
-=======
-
-.centered h1 {
-  font-size: 45px;
->>>>>>> 6bd397db50e9793da77060b2f7d862c844f4108e
   width: auto;
   margin-bottom: 100px;
 }
@@ -114,14 +108,8 @@ footer {
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
-<<<<<<< HEAD
 .centered p{
   font-size: 1.2em;
-=======
-
-.centered p {
-  font-size: 20px;
->>>>>>> 6bd397db50e9793da77060b2f7d862c844f4108e
   line-height: 1.5;
   width: auto;
 }
