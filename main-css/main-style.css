@@ -11,6 +11,11 @@ button{
   border-radius: 2em;
   outline: none;
   padding:5px;
+  background-color:rgb(214 237 249);
+  transition: all .3s;
+}
+button:hover{
+  background-color: rgb(255, 153, 153);
 }
 
 /* HELPER */
@@ -28,8 +33,10 @@ button{
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 2px 20px 1px #a1a1a1;
-  background-color: #E4E5E8;
+
   margin-bottom: 5px;
+  background-color:rgb(214 237 249);
+
 }
 
 .main-nav {
@@ -37,6 +44,7 @@ button{
   align-items: center;
   justify-content: space-around;
   width: auto;
+  background-color:rgb(214 237 249);
 }
 
 .main-nav>* {
@@ -51,7 +59,7 @@ button{
 
 /* MAIN-CONTAINER */
 .main-container {
-  background-color: rgb(240 240 240);
+  background-color: snow;
 
 }
 
@@ -62,7 +70,131 @@ footer {
   align-items: center;
   justify-content: center;
   box-shadow: 0px 0px 20px 1px #a1a1a1;
-  background-color: #E4E5E8;
+  background-color:rgb(214 237 249);
   margin-top: 5px;
   height: 100px
+}
+
+
+/* @@@@@@@@@@@@@@@@ HOME PAGE @@@@@@@@@@@@@@ */
+
+.hero{
+  position: relative;
+  text-align: center;
+  color: black;
+  padding:0 !important;
+}
+.hero img{
+  width: 100%;
+}
+.centered {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 0, 0, 0.63);
+}
+.centered h1{
+  font-size: 45px;
+  width: auto;
+  margin-bottom:100px;
+}
+.centered h1 span{
+  font-weight: bold;
+  color: rgba(0, 0, 0,0.8);
+}
+.centered p{
+  font-size: 20px;
+  line-height: 1.5;
+  width: auto;
+}
+
+
+/* about-us */
+.about-header{
+  text-align: center;
+  padding:30px;
+  font-size: 40px;
+}
+.about-us{
+  display: flex;
+}
+/* ARI */
+.all-about-ari{
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.icon-img {
+  width: 40px;
+  height: 40px;
+  margin-inline-end: 8px;
+  margin-top: 65px;
+}
+.icons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.icons :last-child {
+  align-self: flex-end;
+}
+.icon-img img {
+  padding: 7px;
+  width: 40px;
+  height: 40px
+}
+
+.icon-img {
+  background-color:rgb(214 237 249);
+  border-radius: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-about {
+  max-width: 20.1875rem;
+  max-height: 20.1875rem;
+}
+.img-profile img {
+  display: block;
+  width: 223px;
+  height: 223px;
+  background: #E6E7ED;
+  border-radius: 50%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+} 
+.img-profile{
+display: flex;
+align-items: center;
+margin: 30px 0;
+align-self: center;
+}
+.about-txt {
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  line-height: 1.5;
+}
+/* ARI END */
+
+.about-us{
+  width: 100%;
+height: 600px;
+display: flex;
+justify-content: space-between;
+}
+
+/* YONI */
+.all-about-yoni{
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
 }

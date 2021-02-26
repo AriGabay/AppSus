@@ -16,6 +16,10 @@ const options = {
   components: {
     appHeader,
   },
+  data() {
+    return {
+    }
+  }
 };
 
 const app = new Vue(options);
