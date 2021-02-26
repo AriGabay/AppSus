@@ -51,7 +51,7 @@ aside li:hover{
 /* MAIL LIST */
 
 .read{
-    background-color: rgb(151, 149, 149);
+    background-color: rgb(255, 153, 153,0.4);
     font-weight: 300;
 }
 .mail-list{
@@ -131,6 +131,7 @@ padding: 10px;
 
 .new-mail-container textarea{
     width: 100%;
+    height: 400px;
 }
 
 /* FILTER */
@@ -159,7 +160,7 @@ align-items: center
     /* border-bottom: 1px solid black;    */
 }
 .sent-mail:hover{
-    background-color: rgb(151, 149, 149);
+    background-color: rgb(255, 153, 153,0.4);
     cursor: pointer;
 }
 .sent-mail p span{
@@ -177,11 +178,17 @@ align-items: center
 }
 
 .trashed-mail:hover{
-    background-color: rgb(151, 149, 149);
+    background-color: rgb(255, 153, 153,0.4);
     cursor: pointer;
 }
 .trashed-mail p span{
     color: rgb(121, 116, 116);
+}
+.trash-buttons-container button{
+    background-color: transparent;
+}
+.trash-buttons-container button:hover{
+    background-color: rgb(255, 153, 153);
 }
 
 /* STARED */
@@ -194,7 +201,7 @@ align-items: center
 }
 
 .stared-mail:hover{
-    background-color: rgb(151, 149, 149);
+    background-color: rgb(255, 153, 153,0.4);
     cursor: pointer;
 }
 .stared-mail p span{
