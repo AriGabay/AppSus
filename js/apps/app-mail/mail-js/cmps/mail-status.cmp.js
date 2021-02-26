@@ -1,23 +1,16 @@
 export default {
-    props: ['mailsReadedPercent'],
-    template: `
+  props: ['mailsReadedPercent'],
+  template: `
     <div class="mail-status">
-    <p>Readed: {{mailsReadedPercent}}%</p>
+    <p>Unread: {{mailsReadedPercent}}%</p>
     </div>`,
-    data() {
-        return {
-            readedMails: null
-        }
-    },
-    methods: {
-
-    },
-    components: {},
-    computed: {
-
-    },
-    created() {
-
-
-    },
-}
+  data() {
+    return {
+      readedMails: null,
+    };
+  },
+  methods: {},
+  components: {},
+  computed: {},
+  created() {},
+};

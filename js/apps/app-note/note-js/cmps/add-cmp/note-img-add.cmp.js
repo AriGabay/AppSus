@@ -3,18 +3,14 @@ export default {
   props: [],
   template: `
   <div>
-    <form @submit="createNote">
-      <!-- <input type="color" > -->
+    <form @submit="createNote" class="flex-center-column">
       <input type="text" placeholder="Note Title" v-model="title">
       <input type="color" v-model="backgroundColorFromUser">
       <input type="text" placeholder="Note Text" v-model="text">
-      <input type="text" placeholder="Video Link" v-model="url">
+      <input type="text" placeholder="Image Link" v-model="url">
       <button>Submit</button>
     </form>
-    {{title}}
-    {{text}}
-    {{url}}
-    {{backgroundColorFromUser}}
+
   </div>`,
   data() {
     return {
@@ -42,6 +38,7 @@ export default {
           isPinned: false,
         };
         this.$emit('createNewNote', newNote);
+        this.$emit('submitBack');
       }
     },
   },

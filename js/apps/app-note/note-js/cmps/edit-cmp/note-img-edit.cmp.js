@@ -1,12 +1,11 @@
 export default {
   props: ['note'],
   template: `
-    <div :style="style">
-      <h5>{{title}}</h5>
-      <h5>{{url}}</h5>
-      <h5>{{style}}</h5>
-      <img :src="url">
-      <form>
+    <div :style="style" class="note-img-edit flex-center-column">
+        <div class="note-img-edit-img">
+            <img :src="url">
+        </div>
+      <form class="flex-center-column">
         <input type="txt" v-model="title">
         <input type="txt" v-model="url">
         <input type="color" v-model="style">
@@ -28,6 +27,7 @@ export default {
       this.newNote.info.url = this.url;
       this.newNote.style.backgroundColor = this.style;
       this.$emit('updateNote', this.newNote);
+      this.$emit('submitBack');
     },
   },
   components: {},
