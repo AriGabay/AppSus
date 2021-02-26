@@ -95,7 +95,7 @@ footer {
   color: rgba(0, 0, 0, 0.63);
 }
 .centered h1{
-  font-size: 45px;
+  font-size: 3em;
   width: auto;
   margin-bottom:100px;
 }
@@ -104,7 +104,7 @@ footer {
   color: rgba(0, 0, 0,0.8);
 }
 .centered p{
-  font-size: 20px;
+  font-size: 1.2em;
   line-height: 1.5;
   width: auto;
 }
@@ -197,4 +197,42 @@ justify-content: space-between;
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
+}
+
+
+@media (max-width:1150px){
+.main-size{
+  padding: 20px 100px 20px;
+}
+
+
+}
+
+@media (max-width:980px){
+  .main-size{
+    padding: 20px 0px 20px;
+  }
+  .centered{
+    font-size:0.6em;
+  }
+  .about-us{
+    flex-direction: column;
+  }
+}
+
+@media (max-width:700px){
+  .main-size{
+    padding: 20px 0px 20px;
+  }
+  .centered{
+    font-size:0.4em;
+  }
+
+  .centered p{
+    font-size:2em;
+  }
+  .about-txt{
+    width: 70%;
+    align-self: center;
+  }
 }

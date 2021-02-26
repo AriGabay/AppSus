@@ -29,6 +29,8 @@ flex:1;
 .mail-main-nav{
     list-style: none;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 .mail-main-nav>*{
 margin-bottom: 10px;
@@ -212,5 +214,21 @@ align-items: center
 
 .mail-status{
     text-align: center;
+}
+
+@media (max-width:700px){
+    aside.mail-main-nav{
+    display: flex;
+    flex-direction: column;
+    }
+    /* .nav-phone{
+    }
+    .nav-phone with{
+        transform: translateX(0);
+        box-shadow: -4px 0px 15px 0px #dcdcdc;
+        transform: translateX(100%);
+        box-shadow: none;
+        transition: transform .8s, box-shadow .8s; 
+    } */
 }
 

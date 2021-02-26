@@ -8,7 +8,7 @@ export default {
     props: [],
     template: `
     <div class="mail-main-container">
-      <aside class="mail-main-nav">
+      <aside class="mail-main-nav nav-phone">
         <button @click="goToCompose">+Compose</button>
         <li @click="goToInbox">Inbox</li>
         <li @click="goToStared">Stared</li>
