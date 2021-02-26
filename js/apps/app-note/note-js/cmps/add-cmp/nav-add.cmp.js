@@ -2,9 +2,11 @@ export default {
   props: [],
   template: `
     <div>
-    <form @submit="sendType">
-      <select v-model="typeChoose">
-        <option value="noteTxt">Note Text</option>
+    <form @submit.prevent="sendType">
+      <label for="selectTypeValue">Select note to add</label>
+      <select v-model="typeChoose" id="selectTypeValue">
+      <option value="" disabled selected>Select your option</option>
+        <option selected value="noteTxt">Note Text</option>
         <option value="noteImg">Note Image</option>
         <option value="noteVideo">Note Video</option>
         <option value="noteTodos">Note Todo</option>

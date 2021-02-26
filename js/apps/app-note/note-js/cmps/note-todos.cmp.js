@@ -7,6 +7,9 @@ export default {
           <ul>
             <li v-for="todo in note.info.todos">{{todo.txt}}</li>
           </ul>
+          <button @click.stop="removeNote">Remove Note</button>
+          <button v-if="!note.isPinned" @click.stop="togglePin">📌</button>
+        <button v-if="note.isPinned" @click.stop="togglePin">📍</button>
         <hr/>
         </div>
     </div>`,
@@ -15,8 +18,13 @@ export default {
   },
   methods: {
     editNote() {
-      console.log('this.note:', this.note);
       this.$emit('editNote', this.note);
+    },
+    removeNote() {
+      this.$emit('removeNote', this.note);
+    },
+    togglePin() {
+      this.$emit('togglePin', this.note);
     },
   },
   components: {},

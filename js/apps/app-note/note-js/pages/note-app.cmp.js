@@ -17,8 +17,11 @@ export default {
   props: [],
   template: `
     <div class="notes-preview" v-if="notes" >
-            <nav-add @addByType="addByType"></nav-add>
-            <component v-if="!noteFromComp && !typeChoose" v-for="note in notes" :is="note.type" :note="note" @editNote="toEdit"></component>
+      <nav-add @addByType="addByType"></nav-add>
+      <button @click="removeAdd">Back</button>
+            <div class="notes-container">
+              <component v-if="!noteFromComp && !typeChoose" :class="{ pin: note.isPinned}" v-for="note in notes" :is="note.type" :note="note" @editNote="toEdit" @removeNote="removeNote" @togglePin="togglePin"></component>
+          </div>
             <component v-if="noteFromComp && !typeChoose" :is="type" :note="noteFromComp" @noteFromCompToNull="resetNoteFromComp" @updateNote="updateNote"></component>    
             <component v-if="typeChoose" :is="typeChoose" @createNewNote="createNewNote"></component>
       </div>`,
@@ -42,16 +45,31 @@ export default {
       noteServices.updateNote(newNote);
     },
     addByType(typeFromUser) {
-      // typeFromUser+
-      // if (typeFromUser === 'noteImg') return (this.typeChoose = 'noteImg,Add');
-      // if (typeFromUser === 'noteTxt') return (this.typeChoose = 'noteTxtAdd');
-      // if (typeFromUser === 'noteImg') return (this.typeChoose = 'noteImgAdd');
-      // if (typeFromUser === 'noteImg') return (this.typeChoose = 'noteImgAdd');
       this.typeChoose = typeFromUser + 'Add';
-      console.log('this.typeChoose:', this.typeChoose);
+    },
+    removeAdd() {
+      this.typeChoose = null;
+      this.noteFromComp = null;
     },
     createNewNote(newNote) {
-      noteServices.saveNewNote(newNote);
+      noteServices.saveNewNote(newNote).then((note) => {
+        this.notes.push(note);
+      });
+    },
+    reset() {
+      (this.noteFromComp = null), (this.type = null);
+      this.typeChoose = null;
+      this.$forceUpdate();
+    },
+    removeNote(note) {
+      console.log('note:', note);
+      noteServices.removeNote(note.id).then((res) => {
+        noteServices.query().then((notes) => (this.notes = notes));
+      });
+    },
+    togglePin(note) {
+      note.isPinned = !note.isPinned;
+      noteServices.updateNote(note);
     },
   },
   components: {
