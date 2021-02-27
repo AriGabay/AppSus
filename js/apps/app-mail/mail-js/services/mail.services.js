@@ -54,7 +54,7 @@ const gMails = [
     isStar: false,
   },
   {
-    from: 'Linkedin',
+    from: 'linkedin',
     id: 'Ai2P3l',
     subject: 'New connection',
     body: 'You have a new connection alert! Meet Eliezer Ben Yehude, QA Human Recruiter',
@@ -87,14 +87,15 @@ const gMails = [
     from: 'Rotem Carmon',
     id: 'u2mLv',
     subject: 'Course Schedule',
-    body: 'Good luck our course, Every day from 8:30 - 04:30, if you wont die untill the end we guarantee 60% of our people will reach their 40s ',
+    body:
+      'Good luck our course, Every day from 8:30 - 04:30, if you wont die untill the end we guarantee 60% of our people will reach their 40s ',
     isRead: false,
     sentAt: 1614108454162,
     isDeleted: true,
     isStar: false,
   },
   {
-    from: 'Linkedin',
+    from: 'linkedin',
     id: '0M2sN',
     subject: 'New job alert!',
     body: 'New Job alert neer Kfar Tavor, Come on and give a shot!',
@@ -112,7 +113,8 @@ const gMails = [
     sentAt: 1667407149549,
     isDeleted: false,
     isStar: true,
-  }, {
+  },
+  {
     from: 'Puki ben david',
     id: 'p0M2K',
     subject: 'Hello',
@@ -122,7 +124,6 @@ const gMails = [
     isDeleted: true,
     isStar: false,
   },
-
 ];
 
 export const mailService = {
@@ -132,7 +133,7 @@ export const mailService = {
   updateMailState,
   updateMail,
   starMail,
-  deleteMail
+  deleteMail,
 };
 
 function updateMailState(state, id) {
@@ -145,12 +146,10 @@ function updateMail(mail) {
   return storageService.put(MAIL_KEY, mail).then((mails) => {
     return Promise.resolve(mails);
   });
-
 }
 
 function deleteMail(mail) {
-  return storageService.remove(MAIL_KEY, mail.id)
-    .then(res => Promise.resolve())
+  return storageService.remove(MAIL_KEY, mail.id).then((res) => Promise.resolve());
 }
 
 function starMail(mail) {
@@ -158,8 +157,6 @@ function starMail(mail) {
     return Promise.resolve(mails);
   });
 }
-
-
 
 function addMail(mail) {
   let mailToSave = {

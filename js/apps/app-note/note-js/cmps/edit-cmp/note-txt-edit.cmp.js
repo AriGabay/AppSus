@@ -1,3 +1,4 @@
+import { eventBus } from '../../../../../services/event-bus-service.js';
 export default {
   props: ['note'],
   template: `
@@ -17,6 +18,7 @@ export default {
   methods: {
     updateNote() {
       this.newNote.info.txt = this.text;
+      eventBus.$emit('show-msg', 'Edit - Success');
       this.$emit('updateNote', this.newNote);
       this.$emit('submitBack');
     },

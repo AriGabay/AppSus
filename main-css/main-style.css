@@ -7,6 +7,10 @@ body {
   font-family: 'Maven Pro', sans-serif;
 }
 
+.menu-hamburg {
+  display: none;
+}
+
 button {
   cursor: pointer;
   border-radius: 2em;
@@ -18,6 +22,104 @@ button {
 
 button:hover {
   background-color: rgb(255, 153, 153);
+}
+
+.show-nav-bar {
+  display: none;
+}
+
+.user-msg {
+  /* visibility: hidden; Hidden by default. Visible on click */
+  min-width: 250px;
+  /* Set a default minimum width */
+  margin-left: -125px;
+  /* Divide value of min-width by 2 */
+  background-color: #333;
+  /* Black background color */
+  color: #fff;
+  /* White text color */
+  text-align: center;
+  /* Centered text */
+  border-radius: 2px;
+  /* Rounded borders */
+  padding: 16px;
+  /* Padding */
+  position: fixed;
+  /* Sit on top of the screen */
+  z-index: 1;
+  /* Add a z-index if needed */
+  left: 50%;
+  /* Center the snackbar */
+  bottom: 30px;
+  /* 30px from the bottom */
+  visibility: visible;
+  /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.success {
+  /* background-color: rgb(30, 207, 30); */
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.user-msg button {
+  border: unset;
+  width: auto;
+  height: auto;
+  font-size: 0.7rem;
+  color: white;
+  background-color: transparent;
 }
 
 /* HELPER */
@@ -98,7 +200,8 @@ footer {
   transform: translate(-50%, -50%);
   color: rgba(0, 0, 0, 0.63);
 }
-.centered h1{
+
+.centered h1 {
   font-size: 3em;
   width: auto;
   margin-bottom: 100px;
@@ -108,7 +211,8 @@ footer {
   font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 }
-.centered p{
+
+.centered p {
   font-size: 1.2em;
   line-height: 1.5;
   width: auto;
@@ -216,39 +320,93 @@ footer {
 }
 
 
-@media (max-width:1150px){
-.main-size{
-  padding: 20px 100px 20px;
+@media (max-width:1150px) {
+  .main-size {
+    padding: 20px 100px 20px;
+  }
+
+  .main-nav {
+    padding: 5px;
+  }
+
 }
 
-
-}
-
-@media (max-width:980px){
-  .main-size{
+@media (max-width:980px) {
+  .main-size {
     padding: 20px 0px 20px;
   }
-  .centered{
-    font-size:0.6em;
+
+  .centered {
+    font-size: 0.6em;
   }
-  .about-us{
+
+  .about-us {
     flex-direction: column;
+    height: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+    padding: 8px;
   }
 }
 
-@media (max-width:700px){
-  .main-size{
-    padding: 20px 0px 20px;
-  }
-  .centered{
-    font-size:0.4em;
+@media (max-width:700px) {
+
+  .main-size {
+    width: 100%;
+    height: 100%;
+    padding: 5px 5px 5px;
   }
 
-  .centered p{
-    font-size:2em;
+  .centered {
+    font-size: 0.4em;
   }
-  .about-txt{
+
+  .centered p {
+    font-size: 2em;
+  }
+
+  .about-txt {
     width: 70%;
     align-self: center;
+    margin-bottom: 15px;
+  }
+
+  .centered h1 {
+    margin-bottom: 0px;
+  }
+
+
+  .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: auto;
+    flex-direction: column;
+    background-color: rgb(214 237 249);
+    position: absolute;
+    right: 0;
+    top: 53px;
+    padding: 15px;
+    z-index: 1;
+  }
+
+  .nav-phone {
+    display: none;
+  }
+
+  .menu-hamburg {
+    display: block;
+  }
+
+  .show-nav-bar {
+    display: flex;
   }
 }
