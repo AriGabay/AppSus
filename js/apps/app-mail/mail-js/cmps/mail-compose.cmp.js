@@ -32,14 +32,20 @@ export default {
         subject: this.subject,
         to: this.to
       }
-      mailService.addMail(newMail)
-      const msg = {
-        txt: `Mail sent`,
-        type: 'success'
+      if (!this.validateEmail(newMail.to)) {
+        eventBus.$emit('show-msg', `Enter Valid Mail`)
+        return
+
       }
-      eventBus.$emit('show-msg', msg)
+
+      eventBus.$emit('show-msg', 'Mail sent')
       this.$router.push('/mail')
 
+    },
+    validateEmail(email) {
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      console.log(re.test(String(email).toLowerCase()));
+      return re.test(String(email).toLowerCase());
     }
   },
   components: {},

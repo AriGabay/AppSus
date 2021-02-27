@@ -11,9 +11,9 @@ export default {
     </video>
     </div>
     <div class="btn-pin-remove">
-        <button @click.stop="removeNote">Remove Note 🗑️</button>
-        <button v-if="!note.isPinned" @click.stop="togglePin">Pin 📌</button>
-        <button v-if="note.isPinned" @click.stop="togglePin">Unpin 📍</button>
+        <button @click.stop="removeNote">🗑️</button>
+        <button v-if="!note.isPinned" @click.stop="togglePin">📌</button>
+        <button v-if="note.isPinned" @click.stop="togglePin">📍</button>
         <button v-if="!isReadMore"  @click.stop="readMore">Read More</button>    
         <button  v-if="isReadMore" @click.stop="readLess">Read Less</button>    
     </div>

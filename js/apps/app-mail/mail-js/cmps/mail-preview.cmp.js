@@ -27,11 +27,8 @@ export default {
     deleteMail(mail) {
       mail.isDeleted = true
       this.$emit('deleteMail', mail)
-      const msg = {
-        txt: `Mail Deleted`,
-        type: 'success'
-      }
-      eventBus.$emit('show-msg', msg)
+
+      eventBus.$emit('show-msg', 'Mail Deleted')
     },
     reply(id) {
       this.$router.push(`/mail/compose/${id}`)

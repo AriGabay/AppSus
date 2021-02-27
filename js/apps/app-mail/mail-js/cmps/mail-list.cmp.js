@@ -3,7 +3,7 @@ export default {
     props: ['mails'],
     template: `
     <div>
-    <h1>Inbox 📥</h1>
+    <h1 class="inbox-logo">Inbox 📥</h1>
       <ul class="mail-list">
           <div class="list-button-container">
               <button @click="showAll">Show All</button>

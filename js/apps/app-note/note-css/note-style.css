@@ -180,7 +180,7 @@
 }
 
 /* MEDIA FOR PHONE */
-@media (max-width: 750px) {
+/* @media (max-width: 750px) {
   .main-size {
     width: 100%;
     height: 100%;
@@ -214,4 +214,18 @@
     object-fit: fill;
   }
 
+} */
+
+@media (max-width:1180px){
+  .note{
+    width: 380px;
+  }
+
+}
+
+
+@media (max-width:970px){
+.note{
+  width: 300px;
+}
 }

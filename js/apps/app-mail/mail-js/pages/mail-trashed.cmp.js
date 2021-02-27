@@ -27,11 +27,7 @@ export default {
             mail.isDeleted = false
             mailService.updateMail(mail)
             this.filterMails()
-            const msg = {
-                txt: `Mail Restored`,
-                type: 'success'
-            }
-            eventBus.$emit('show-msg', msg)
+            eventBus.$emit('show-msg', 'Mail Restored')
         },
         destroyMail(mail) {
             if (!confirm('Are you sure?')) return
@@ -42,11 +38,8 @@ export default {
                             this.mails = mails
                             this.filterMails()
                         })
-                    const msg = {
-                        txt: `Mail Deleted`,
-                        type: 'success'
-                    }
-                    eventBus.$emit('show-msg', msg)
+
+                    eventBus.$emit('show-msg', 'Mail Deleted')
                 })
 
         },

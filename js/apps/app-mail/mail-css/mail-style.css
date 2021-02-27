@@ -221,64 +221,58 @@ align-items: center
     display: flex;
     flex-direction: column;
     }
-    /* .nav-phone{
+
+    .mail-preview-container{
+        font-size:0.65rem;
     }
-    .nav-phone with{
-        transform: translateX(0);
-        box-shadow: -4px 0px 15px 0px #dcdcdc;
-        transform: translateX(100%);
-        box-shadow: none;
-        transition: transform .8s, box-shadow .8s; 
-    } */
+    aside.mail-main-nav{
+    flex-direction: row;
+    }
+    .mail-main-container{
+        align-items: center;
+        height: 90vh;
+        flex-direction: column;
+    }
+
+    .inbox-logo{
+        text-align: center;
+    }
+
+    aside.main-mail-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: auto;
+        flex-direction: column;
+        background-color: rgb(214 237 249);
+        position: absolute;
+        right: 0;
+        top: 100px;
+        padding: 15px;
+        z-index: 1;
+        flex-wrap: wrap;
+      }
+
+      .show-nav-bar>*{
+          padding:5px;
+          font-size: 0.8rem;
+          margin-inline-start: 2px;
+          border-radius: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2em;
+      }
+    
+      .nav-phone {
+        display: none !important;
+      }
+    
+      .menu-hamburg {
+        display: block;
+      }
+    
+      .show-nav-bar {
+        display: flex !important;
+      }
 }
-
-
-
-/* USER MSG */
-
-.user-msg {
-    /* visibility: hidden; Hidden by default. Visible on click */
-    min-width: 250px; /* Set a default minimum width */
-    margin-left: -125px; /* Divide value of min-width by 2 */
-    background-color: #333; /* Black background color */
-    color: #fff; /* White text color */
-    text-align: center; /* Centered text */
-    border-radius: 2px; /* Rounded borders */
-    padding: 16px; /* Padding */
-    position: fixed; /* Sit on top of the screen */
-    z-index: 1; /* Add a z-index if needed */
-    left: 50%; /* Center the snackbar */
-    bottom: 30px; /* 30px from the bottom */
-    visibility: visible; /* Show the snackbar */
-    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
-    However, delay the fade out process for 2.5 seconds */
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
-.success{
-    /* background-color: rgb(30, 207, 30); */
-}
-
-
-
-  /* Animations to fade the snackbar in and out */
-  @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-  }
-  
-  @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-  }
-  
-  @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-  }
-  
-  @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-  }

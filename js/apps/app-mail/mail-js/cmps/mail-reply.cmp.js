@@ -34,11 +34,8 @@ export default {
         to: this.to
       }
       mailService.addMail(newMail)
-      const msg = {
-        txt: `Mail replied`,
-        type: 'success'
-      }
-      eventBus.$emit('show-msg', msg)
+
+      eventBus.$emit('show-msg', 'Mail replied')
       this.$router.push('/mail')
     }
   },

@@ -1,7 +1,6 @@
 import { mailService } from '../services/mail.services.js';
 import mailStatus from '../cmps/mail-status.cmp.js';
 import mailList from '../cmps/mail-list.cmp.js';
-import userMsg from '../cmps/user-msg.cmp.js'
 import { eventBus } from '../../../../services/event-bus-service.js'
 
 
@@ -9,20 +8,21 @@ export default {
     props: [],
     template: `
     <div class="mail-main-container">
-      <aside class="mail-main-nav nav-phone">
-        <button @click="goToCompose">+Compose</button>
-        <li @click="goToInbox">Inbox</li>
-        <li @click="goToStared">Stared</li>
-        <li @click="goToSent">Sent Mails</li>
-        <li @click="goToTrash">Trash</li>
+        <button class="menu-hamburg" @click="toggleAsideNav">☰</button>
+      <aside :class="{'show-nav-bar':isOpen}" class="mail-main-nav nav-phone">
+          <button @click="goToCompose">+Compose</button>
+              <li @click="goToInbox">Inbox</li>
+              <li @click="goToStared">Stared</li>
+              <li @click="goToSent">Sent Mails</li>
+              <li @click="goToTrash">Trash</li>
       </aside>
       <div class="main-mail-app-container">
-          <user-msg></user-msg>
           <router-view></router-view>
         </div>
     </div>`,
     data() {
         return {
+            isOpen: false,
             mails: null,
             currView: 'inbox',
             readedMails: null
@@ -30,6 +30,11 @@ export default {
         };
     },
     methods: {
+        toggleAsideNav() {
+            console.log('this.isOpen:', this.isOpen);
+            this.isOpen = !this.isOpen;
+            console.log('this.isOpen:', this.isOpen);
+        },
         goToCompose() {
             this.$router.push('/mail/compose')
         },
@@ -48,7 +53,6 @@ export default {
         goToTrash() {
             this.currView = 'trash'
             this.$router.push('/mail/trashed')
-
         }
     },
     computed: {
@@ -61,10 +65,5 @@ export default {
     components: {
         mailList,
         mailStatus,
-        userMsg,
-
-
     },
-    watch: {
-    }
 };
