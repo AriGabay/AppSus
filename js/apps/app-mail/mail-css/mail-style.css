@@ -248,8 +248,8 @@ align-items: center
         position: absolute;
         right: 0;
         top: 100px;
-        padding: 15px;
         z-index: 1;
+        padding: 15px;
         flex-wrap: wrap;
       }
 
