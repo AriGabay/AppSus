@@ -53,6 +53,10 @@
   margin: 5px;
 }
 
+#selectTypeValue {
+  border-radius: 20px;
+}
+
 /* HELPER */
 .flex-center-column {
   display: flex;
@@ -111,16 +115,6 @@
   padding: 5px;
 
 }
-
-/* .note-todos-txt {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  text-align: center;
-  width: auto;
-  height: auto;
-} */
 
 .note-todos-btn {
   display: flex;
@@ -183,4 +177,41 @@
   height: 500px;
   width: 500px;
   object-fit: fill;
+}
+
+/* MEDIA FOR PHONE */
+@media (max-width: 750px) {
+  .main-size {
+    width: 100%;
+    height: 100%;
+    padding: 5px 5px 5px;
+  }
+
+  .btn-pin-remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .note {
+    min-width: 100%;
+    min-height: 320px;
+  }
+
+  .note-img-edit-img {
+    width: 300px;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .note-img-edit-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+  }
+
 }

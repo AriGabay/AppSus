@@ -1,5 +1,5 @@
 import { noteServices } from '../../services/note.services.js';
-
+import { eventBus } from '../../../../../services/event-bus-service.js';
 export default {
   template: `
   <div>
@@ -36,6 +36,7 @@ export default {
         isPinned: false,
         type: 'noteTodos',
       };
+      eventBus.$emit('show-msg', 'Add - Success');
       this.$emit('createNewNote', newNote);
       this.$emit('submitBack');
     },
