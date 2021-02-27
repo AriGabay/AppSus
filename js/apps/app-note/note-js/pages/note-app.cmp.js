@@ -64,7 +64,6 @@ export default {
       this.$forceUpdate();
     },
     removeNote(note) {
-      console.log('note:', note);
       noteServices.removeNote(note.id).then((res) => {
         noteServices.query().then((notes) => (this.notes = notes));
       });

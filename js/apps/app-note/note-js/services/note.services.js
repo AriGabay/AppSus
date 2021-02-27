@@ -24,7 +24,7 @@ const gNotes = [
       title: 'Me playing Mi',
     },
     style: {
-      backgroundColor: '#00d',
+      backgroundColor: 'rgb(255, 153, 153,0.4)',
     },
     isPinned: false,
   },
@@ -72,9 +72,7 @@ function query() {
   });
 }
 function updateNote(newNote) {
-  return storageService.put(NOTES_KEY, newNote).then((res) => {
-    console.log(res);
-  });
+  return storageService.put(NOTES_KEY, newNote).then((res) => {});
 }
 
 function makeId(length = 5) {
@@ -91,9 +89,7 @@ function saveNewNote(newEntities) {
   });
 }
 function removeNote(id) {
-  console.log('id:', id);
   return storageService.remove(NOTES_KEY, id).then((res) => {
-    console.log('res:', res);
     return res;
   });
 }

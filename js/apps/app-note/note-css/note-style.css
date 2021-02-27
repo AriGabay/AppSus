@@ -216,16 +216,24 @@
 
 } */
 
-@media (max-width:1180px){
-  .note{
+@media (max-width:1180px) {
+  .note {
     width: 380px;
   }
 
 }
 
+@media (max-width:1080px) {
+  .note {
+    width: 300px;
+  }
 
-@media (max-width:970px){
-.note{
-  width: 300px;
 }
+
+
+
+@media (max-width:970px) {
+  .note {
+    width: 250px;
+  }
 }

@@ -35,7 +35,6 @@ export default {
       this.$emit('togglePin', this.note);
     },
     readMore() {
-      console.log('this.isReadMore:', this.isReadMore);
       this.isReadMore = !this.isReadMore;
     },
     readLess() {

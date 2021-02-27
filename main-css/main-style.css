@@ -60,10 +60,6 @@ button:hover {
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-.success {
-  /* background-color: rgb(30, 207, 30); */
-}
-
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
   from {
@@ -328,14 +324,15 @@ footer {
   .main-nav {
     padding: 5px;
   }
-  .note{
+
+  .note {
     width: 380px;
   }
 
 }
 
 
-@media (max-width:1040px){
+@media (max-width:1040px) {
   .main-size {
     padding: 20px 60px 20px;
   }
@@ -345,6 +342,7 @@ footer {
   .main-size {
     padding: 20px 20px 20px;
   }
+
   .about-us {
     flex-direction: column;
     height: 100%;
@@ -360,6 +358,7 @@ footer {
     margin: 0;
     padding: 8px;
   }
+
   .centered h1 {
     margin-bottom: 20px;
   }
@@ -372,11 +371,12 @@ footer {
     height: 100%;
     padding: 5px 5px 5px;
   }
+
   .centered {
     position: absolute;
     top: 50%;
     width: 100%;
-    font-size:0.7em;
+    font-size: 0.7em;
   }
 
   .centered p {
@@ -392,6 +392,7 @@ footer {
   .centered h1 {
     margin-bottom: 0px;
   }
+
   .main-nav {
     display: flex;
     align-items: center;

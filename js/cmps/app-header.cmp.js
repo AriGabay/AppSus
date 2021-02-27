@@ -19,9 +19,7 @@ export default {
   },
   methods: {
     toggleMainNav() {
-      console.log('this.isOpen:', this.isOpen);
       this.isOpen = !this.isOpen;
-      console.log('this.isOpen:', this.isOpen);
     },
   },
 };

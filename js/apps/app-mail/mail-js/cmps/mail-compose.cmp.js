@@ -1,5 +1,5 @@
-import { mailService } from '../services/mail.services.js'
-import { eventBus } from "../../../../services/event-bus-service.js"
+import { mailService } from '../services/mail.services.js';
+import { eventBus } from '../../../../services/event-bus-service.js';
 export default {
   props: [],
   template: `
@@ -22,33 +22,31 @@ export default {
     return {
       body: '',
       subject: '',
-      to: ''
-    }
+      to: '',
+    };
   },
   methods: {
     submit() {
       let newMail = {
         body: this.body,
         subject: this.subject,
-        to: this.to
-      }
+        to: this.to,
+      };
       if (!this.validateEmail(newMail.to)) {
-        eventBus.$emit('show-msg', `Enter Valid Mail`)
-        return
-
+        eventBus.$emit('show-msg', `Enter Valid Mail`);
+        return;
       }
 
-      eventBus.$emit('show-msg', 'Mail sent')
-      this.$router.push('/mail')
-
+      eventBus.$emit('show-msg', 'Mail sent');
+      this.$router.push('/mail');
     },
     validateEmail(email) {
       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      console.log(re.test(String(email).toLowerCase()));
+      consoe.log(re.test(String(email).toLowerCase()));
       return re.test(String(email).toLowerCase());
-    }
+    },
   },
   components: {},
   computed: {},
-  created() { },
-}
+  created() {},
+};
