@@ -1,3 +1,4 @@
+import { eventBus } from "../../../../services/event-bus-service.js"
 export default {
   props: ['mail'],
   template: `
@@ -26,6 +27,11 @@ export default {
     deleteMail(mail) {
       mail.isDeleted = true
       this.$emit('deleteMail', mail)
+      const msg = {
+        txt: `Mail Deleted`,
+        type: 'success'
+      }
+      eventBus.$emit('show-msg', msg)
     },
     reply(id) {
       this.$router.push(`/mail/compose/${id}`)

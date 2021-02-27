@@ -1,4 +1,5 @@
 import { mailService } from '../services/mail.services.js'
+import { eventBus } from "../../../../services/event-bus-service.js"
 export default {
   props: [],
   template: `
@@ -32,7 +33,13 @@ export default {
         to: this.to
       }
       mailService.addMail(newMail)
+      const msg = {
+        txt: `Mail sent`,
+        type: 'success'
+      }
+      eventBus.$emit('show-msg', msg)
       this.$router.push('/mail')
+
     }
   },
   components: {},

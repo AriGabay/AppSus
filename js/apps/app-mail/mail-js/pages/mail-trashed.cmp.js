@@ -1,4 +1,5 @@
 import { mailService } from '../services/mail.services.js'
+import { eventBus } from "../../../../services/event-bus-service.js"
 const MAILS_KEY = 'mailsDB'
 export default {
     props: [],
@@ -26,6 +27,11 @@ export default {
             mail.isDeleted = false
             mailService.updateMail(mail)
             this.filterMails()
+            const msg = {
+                txt: `Mail Restored`,
+                type: 'success'
+            }
+            eventBus.$emit('show-msg', msg)
         },
         destroyMail(mail) {
             if (!confirm('Are you sure?')) return
@@ -36,6 +42,11 @@ export default {
                             this.mails = mails
                             this.filterMails()
                         })
+                    const msg = {
+                        txt: `Mail Deleted`,
+                        type: 'success'
+                    }
+                    eventBus.$emit('show-msg', msg)
                 })
 
         },

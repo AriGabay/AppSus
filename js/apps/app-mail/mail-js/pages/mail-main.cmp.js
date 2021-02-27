@@ -1,6 +1,7 @@
 import { mailService } from '../services/mail.services.js';
 import mailStatus from '../cmps/mail-status.cmp.js';
 import mailList from '../cmps/mail-list.cmp.js';
+import userMsg from '../cmps/user-msg.cmp.js'
 import { eventBus } from '../../../../services/event-bus-service.js'
 
 
@@ -16,6 +17,7 @@ export default {
         <li @click="goToTrash">Trash</li>
       </aside>
       <div class="main-mail-app-container">
+          <user-msg></user-msg>
           <router-view></router-view>
         </div>
     </div>`,
@@ -54,12 +56,13 @@ export default {
     created() {
         mailService.query()
             .then(mails => this.mails = mails)
-        // eventBus.$on('mailStateChange', mail)
 
     },
     components: {
         mailList,
         mailStatus,
+        userMsg,
+
 
     },
     watch: {
